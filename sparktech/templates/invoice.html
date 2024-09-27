@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+
+{% load static %}
+
+
+<div class="container ">
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-10">
+            <div class="card border-primary">
+                <div class="card-header bg-primary text-white justify-content-center d-flex">
+                    <h4 class="mb-0">Tax Invoice </h4>
+                    <!-- <small>Order Date: {{ order.created_at }}</small> -->
+                </div>
+                <div class="card-body">
+                    <!-- Shop Details -->
+                    <div class="mb-4">
+                        <ul class="list-unstyled">
+                            <li><strong>Sold By:</strong> Spark Tech Private Limited</li>
+                            <li><strong>Ship-from Address:</strong>Egmore Chennai, Tamil Nadu,
+                                India - 600008</li>
+                            <li><strong>GSTIN:</strong> 33AAXCS0655F1Z5</li>
+                            <li><strong>Contact:</strong> 044 - 66904500</li>
+                        </ul>
+                    </div>
+
+                    <!-- Customer Details -->
+                    <div class="row mb-4">
+                        <div class="col-lg-4">
+                            <ul class="list-unstyled">
+                                <li><strong>Order ID:</strong> {{ order.id }}</li>
+                                <li><strong>Order Date:</strong> {{ order.created_at|date:"d M Y" }}</li>
+                                <li><strong>Invoice Date:</strong> {{ order.created_at|date:"d M Y" }}</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4">
+                            <h5 class="mb-1">Bill To</h5>
+                            <ul class="list-unstyled">
+                                <li><strong>Name: {{ order.first_name }}</strong></li>
+                                <li><strong>Address:</strong> {{ order.address1 }}</li>
+                                <li><strong>City:</strong> {{ order.city }}</li>
+                                <li><strong>State:</strong> {{ order.state }}</li>
+                                <li><strong>Zipcode:</strong> {{ order.zipcode }}</li>
+                                <li><strong>Phone:</strong> {{ order.phone }}</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4">
+                            <h5 class="mb-1">Ship To</h5>
+                            <ul class="list-unstyled">
+                                <li><strong>Name: {{ order.first_name }}</strong></li>
+                                <li><strong>Address:</strong> {{ order.address1 }}</li>
+                                <li><strong>City:</strong> {{ order.city }}</li>
+                                <li><strong>State:</strong> {{ order.state }}</li>
+                                <li><strong>Zipcode:</strong> {{ order.zipcode }}</li>
+                                <li><strong>Phone:</strong> {{ order.phone }}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th class="bg-primary text-white">Product Details</th>
+                                    <th class="bg-primary text-white">Quantity</th>
+                                    <th class="bg-primary text-white">Price</th>
+                                    <th class="bg-primary text-white">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in order_items %}
+                                <tr>
+                                    <td>{{ item.product }}</td>
+                                    <td>{{ item.quantity }}</td>
+                                    <td>₹{{ item.price }}</td>
+                                    <td>₹{{ item.total }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3" class="text-right font-weight-bold">Subtotal</td>
+                                    <td>₹{{ subtotal }}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-right font-weight-bold">Shipping (Free Shipping 10K &
+                                        Above)</td>
+                                    <td>₹{{ shipping_cost }}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-right font-weight-bold">Grand Total</td>
+                                    <td>₹{{ grand_total }}</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock 'main' %}

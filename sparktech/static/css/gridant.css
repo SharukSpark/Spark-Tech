@@ -1,0 +1,7 @@
+:root {
+    --bg-primary-gradient: linear-gradient(90deg, rgba(58, 123, 213, 1) 0%, rgba(0, 210, 255, 1) 100%);
+}
+
+.bg-primary {
+    background: var(--bg-primary-gradient);
+}

@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+
+{% load static %}
+
+<!-- Page Header Start -->
+<div class="container-fluid bg-primary mb-5">
+    <div class="d-flex flex-column bg-primary text-white align-items-center justify-content-center mb-3"
+        style="min-height: 100px;">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">Checkout</h1>
+        <div class="d-inline-flex">
+            <p class="m-0"><a href="/home" class="text-white">Home</a></p>
+            <p class="m-0 px-2">-</p>
+            <p class="m-0">Checkout</p>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Checkout Start -->
+<div class="container d-flex justify-content-center">
+    <div class="row justify-content-center w-100">
+        <div class="col-lg-7">
+            <div class="card shadow-sm border-2 mb-5 bg-light">
+                <h2 class="text-center bg-primary text-white p-2">Checkout</h2>
+
+                <div class="card-body  p-0 ps-5 pe-5 pb-5 pt-2">
+                    <form action="" method="POST" class="checkout-form">
+                        {% csrf_token %}
+                        <div class="form-row">
+
+                            <div class="form-group col-lg-12 mb-3">
+                                <label for="first_name" class="mb-2 "><i class="fa fa-user "></i>
+                                    First Name</label>
+                                <input type="text" class="form-control" id="first_name" name="first_name"
+                                    value="{{ initial_data.first_name }}" required>
+                            </div>
+                            <div class="form-group col-lg-12 mb-3">
+                                <label for="email" class="mb-2 "><i class="fa fa-envelope "></i>
+                                    Email</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    value="{{ initial_data.email }}" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-12 mb-3">
+                                <label for="phone" class="mb-2 "><i class="fa fa-phone "></i>
+                                    Phone</label>
+                                <input type="text" class="form-control" id="phone" name="phone"
+                                    value="{{ initial_data.phone }}" required>
+                            </div>
+                            <div class="form-group col-lg-12 mb-3">
+                                <label for="address1" class="mb-2 "><i class="fa fa-home "></i>
+                                    Address</label>
+                                <input type="text" class="form-control" id="address1" name="address1"
+                                    value="{{ initial_data.address1 }}" required style="height: 80px;">
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-12 mb-3">
+                                <label for="city" class="mb-2 "><i class="fa fa-city "></i>
+                                    City</label>
+                                <input type="text" class="form-control" id="city" name="city"
+                                    value="{{ initial_data.city }}" required>
+                            </div>
+                            <div class="form-group col-lg-12 mb-3">
+                                <label for="state" class="mb-2 "><i class="fa fa-map-marker-alt "></i> State</label>
+                                <input type="text" class="form-control" id="state" name="state"
+                                    value="{{ initial_data.state }}" required>
+                            </div>
+                            <div class="form-group col-lg-12 mb-3">
+                                <label for="zipcode" class="mb-2 "><i class="fa fa-map-pin "></i>
+                                    Pin Code</label>
+                                <input type="text" class="form-control" id="zipcode" name="zipcode"
+                                    value="{{ initial_data.zipcode }}" required>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center pt-3">
+                            <button type="submit" class="btn btn-block py-3 font-weight-bold"
+                                style="background-color: #F8D24E; color: #000; border: none; border-radius: 50px; padding: 15px 30px; font-size: 16px;">
+                                Use this address
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card border-secondary mb-5 bg-light">
+                <div class="card-header bg-primary text-white border-0">
+                    <h4 class="font-weight-semi-bold m-0">Shopping Cart Summary</h4>
+                </div>
+                <div class="card-body ">
+                    <div class="d-flex justify-content-between mb-3 pt-1">
+                        <h6 class="font-weight-medium">Main Total</h6>
+                        <h6 class="font-weight-medium">₹{{ maintotal }}</h6>
+                    </div>
+                    <div class="d-flex justify-content-between ">
+                        <h6 class="font-weight-medium">Count</h6>
+                        <h6 class="font-weight-medium">{{ n }}</h6>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <div class="d-flex justify-content-between ">
+                        <h5 class="font-weight-bold">Total</h5>
+                        <h5 class="font-weight-bold">₹{{ total }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Checkout End -->
+
+{% endblock 'main' %}

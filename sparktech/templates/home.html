@@ -1,0 +1,498 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+
+{% load static %}
+
+<!-- Carousel Start -->
+
+<div class="carousel" id="carousel">
+    <div class="list">
+        <div class="item active">
+            <img src="{% static 'images/threadripper.png' %}" alt="Processor">
+            <div class="introduce">
+                <a href="#" class="text-decoration-none" id="topic"><b>Processor</b></a>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/motherboard.png' %}" alt="Motherboard">
+            <div class="introduce">
+                <a href="#" class="text-decoration-none" id="topic"><b>Motherboard</b></a>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/ram.png' %}" alt="RAM">
+            <div class="introduce">
+                <a href="#" class="text-decoration-none" id="topic"><b>RAM</b></a>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/cabanit.png' %}" alt="Cabinet">
+            <div class="introduce">
+                <a href="#" class="text-decoration-none" id="topic"><b>Cabinet</b></a>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/cooler.png' %}" alt="CPU Cooler">
+            <div class="introduce">
+                <a href="#" class="text-decoration-none" id="topic"><b>CPU Cooler</b></a>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/card.png' %}" alt="GraphicCard">
+            <div class="introduce">
+                <a href="#" class="text-decoration-none" id="topic"><b>GraphicCard</b></a>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/ssd.png' %}" alt="SSD">
+            <div class="introduce">
+                <a href="#" class="text-decoration-none" id="topic"><b>SSD</b></a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // script.js
+    let carousel = document.querySelector('.carousel');
+    let listHTML = document.querySelector('.carousel .list');
+
+    const showSlider = (type) => {
+        let items = document.querySelectorAll('.carousel .list .item');
+        if (type === 'next') {
+            listHTML.appendChild(items[0]);
+            carousel.classList.add('next');
+        } else {
+            listHTML.prepend(items[items.length - 1]);
+            carousel.classList.add('prev');
+        }
+        setTimeout(() => {
+            carousel.classList.remove('next', 'prev');
+        }, 2000);
+    }
+
+    // Automatically change slides every 5 seconds
+    setInterval(() => {
+        showSlider('next');
+    }, 5000);
+</script>
+
+<!-- Carousel end -->
+
+<!-- Featured Section Start -->
+<div class="container-fluid py-5">
+    <div class="row px-xl-5">
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="feature-box text-center">
+                <i class="fa fa-check icon text-primary fa-2x"></i>
+                <h5 class="font-weight-bold mt-2">Quality Product</h5>
+                <p>We offer high-quality products that meet your expectations.</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="feature-box text-center">
+                <i class="fa fa-shipping-fast icon text-primary fa-2x"></i>
+                <h5 class="font-weight-bold mt-2">Free Shipping</h5>
+                <p>Get free shipping on all orders above $50.</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="feature-box text-center">
+                <i class="fa fa-phone-volume icon text-primary fa-2x"></i>
+                <h5 class="font-weight-bold mt-2">24/7 Support</h5>
+                <p>Our support team is available 24/7 to assist you.</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="feature-box text-center">
+                <i class="fa fa-exchange-alt icon text-primary fa-2x"></i>
+                <h5 class="font-weight-bold mt-2">Easy Return</h5>
+                <p>Easy return policy within 30 days of purchase.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featured Section End -->
+
+
+<!-- Products Section Start -->
+<section class="bg-light py-5">
+    <div class="container-fluid px-xl-5">
+        <div class="pb-4">
+            <h1 class="h1 fw-bold">
+                Product Overview
+            </h1>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center pb-4">
+            <div id="productButtonGroup" class="d-flex">
+                <button class="active fw-bold text-decoration-none" data-filter="*">
+                    All Products
+                </button>
+                <button data-filter=".processor">
+                    Processor
+                </button>
+                <button data-filter=".motherboard">
+                    Motherboard
+                </button>
+                <button data-filter=".graphic-card">
+                    Graphic Card
+                </button>
+                <button data-filter=".cooling-system">
+                    Cooling System
+                </button>
+            </div>
+        </div>
+
+        <!-- Example Products -->
+        <div id="productList">
+            <div class="row ">
+                <!-- Repeat similar product items for processor -->
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct processor show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/ryzen-3.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">AMD Ryzen™&nbsp;3 Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/ryzen3" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct processor show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/ryzen-5.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">AMD Ryzen™&nbsp;5 Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/ryzen5" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct processor show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/ryzen-7.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">AMD Ryzen™&nbsp;7 Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/ryzen7" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct processor show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/ryzen-9.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">AMD Ryzen™&nbsp;9 Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/ryzen9" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct processor show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/threadripper.png' %}" class="img-fluid pe-4" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">AMD Threadripper Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/Threadripper_Series" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct processor show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/intel-i3.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Intel Core™&nbsp;i3 Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/i3_Series" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct processor show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/intel-i5.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Intel Core™&nbsp;i5 Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/i5_Series" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct processor show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/intel-i7.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Intel Core™&nbsp;i7 Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/i7_Series" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct processor show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/intel-i9.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Intel Core™&nbsp;i9 Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/i9_Series" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat similar product items as needed -->
+
+                <!-- Repeat similar product items for motherboard  -->
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct motherboard show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/motherboard-amd-ddr5.png' %}" class="img-fluid p-4"
+                                alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Motherboard-DDR&nbsp;5&nbsp;Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/DDR_5" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct motherboard show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/m-threadrepar.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Motherboard-ThreadRipper&nbsp;Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/ThreadRipper" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct motherboard show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/m-650.png' %}" class="img-fluid p-3" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Motherboard-650&nbsp;Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/board_650" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct motherboard show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/m-550.png' %}" class="img-fluid p-2" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Motherboard-550&nbsp;Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/board_550" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct motherboard show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/m-450.png' %}" class="img-fluid p-4" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Motherboard-450&nbsp;Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/board_450" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat similar product fitems as needed -->
+
+                <!-- Repeat similar product items for graphic-card  -->
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct graphic-card show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/g-4060.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Graphics&nbsp;Cards-4060&nbsp;Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/Cards_4060" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct graphic-card show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/g-3050.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Graphics&nbsp;Cards-3050&nbsp;Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/Cards_3050" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct graphic-card show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/g-1650.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Graphics&nbsp;Cards-1650&nbsp;Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/Cards_1650" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat similar product fitems as needed -->
+
+                <!-- Repeat similar product items for cooling-system -->
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct cooling-system show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/cooler.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Liquid&nbsp;Cooler-360mm</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/Cooler_300mm/" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct cooling-system show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/liquid cool2.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Liquid&nbsp;Cooler-240mm</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/Cooler_240mm" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct cooling-system show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/liquid-cooling1.png' %}" class="img-fluid p-4" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Liquid&nbsp;Cooler-120mm</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/Cooler_120mm" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct cooling-system show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/air-cooling-2.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Custom-RGB&nbsp;CPU&nbsp;Cooler</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/Custom_RGB_Cooler" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct cooling-system show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/air-cooling2.png' %}" class="img-fluid p-5" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">CPU-RGB&nbsp;Cooler</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/CPU_RGB_Coole" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat similar product items as needed -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock 'main' %}

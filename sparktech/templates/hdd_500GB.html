@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+
+{% load static %}
+
+<div class="container-fluid  text-white ">
+    <div class="row px-xl-5">
+        <div class="col-lg-2 col-md-2 col-sm-3">
+            <div class="sidebar-sticky text-dark">
+                <h5 class="bg-primary text-white p-3">Filter by Category</h5>
+        
+                <!-- Filter by Price -->
+                <form action="/range" method="GET">
+                    <div class="mb-3">
+                        <label for="minPrice" class="form-label">Min</label>
+                        <input type="number" class="form-control" name="min" id="minPrice" placeholder="Min">
+                    </div>
+                    <div class="mb-3">
+                        <label for="maxPrice" class="form-label">Max</label>
+                        <input type="number" class="form-control" name="max" id="maxPrice" placeholder="Max">
+                    </div>
+                    <div class="mb-3">
+                        <input type="submit" class="btn btn-primary" value="Search">
+                    </div>
+                </form>
+        
+                <hr>
+        
+                <!-- Sort by Price -->
+                <h6>Sort by Price</h6>
+                <p><a href="/sort/0" class="anch">Low to High</a></p>
+                <p><a href="/sort/1" class="anch">High to Low</a></p>
+        
+                <hr>
+        
+            </div>
+        </div>
+        <!-- Products Section Start -->
+        <div class="col-lg-10 col-md-10 col-sm-9">
+            <div class="row">
+                {% for x in harddrive %}
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-2 p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{{x.card_img.url}}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">{{x.card_name}}</h6>
+                            <div class="d-flex justify-content-center">
+                                <h6>Rs.{{x.price}}</h6>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <a href="/harddrivedetails/{{ x.id }}" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>View
+                                Detail</a>
+                            <a href="cart.html" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- Repeat similar product items as needed -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock 'main' %}

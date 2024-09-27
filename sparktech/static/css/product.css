@@ -1,0 +1,26 @@
+#productButtonGroup button {
+    border: none;
+    background: none;
+    color: #6c757d;
+    margin-right: 1rem;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+#productButtonGroup button:hover,
+#productButtonGroup button.active {
+    color: #000;
+    text-decoration: underline;
+}
+
+.pproduct {
+    display: none;
+}
+
+.pproduct.show {
+    display: block;
+}
+

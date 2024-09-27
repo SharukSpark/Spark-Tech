@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+<div class="container mt-5">
+    <!-- <h2 class="text-center mb-4 text-uppercase text-dark">My Account</h2> -->
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-0 shadow-lg rounded-lg overflow-hidden">
+                <div class="card-header bg-gradient-primary text-white text-center py-4">
+                    <h3 class="mb-0"><i class="bi bi-person-circle "></i>&nbsp;Account Details</h3>
+                </div>
+                <div class="card-body bg-light">
+                    <div class="mb-4">
+                        <p><i class="fas fa-user text-primary mr-2"></i>&nbsp;<strong>Username:</strong>
+                            {{ request.user.username }}
+                        </p>
+                        <!-- <p><i class="fas fa-envelope text-primary mr-2"></i><strong>Email:</strong>
+                            {{ request.user.email }}
+                        </p> -->
+                        <p><i class="fas fa-clock text-primary mr-2"></i>&nbsp;<strong>Last Login:</strong>
+                            {{ request.user.last_login|date }}
+                        </p>
+
+
+                        {% if latest_order %}
+
+                        <!-- <h4><i class="fas fa-shopping-cart text-primary mr-2"></i>Recent Order Details</h4> -->
+                        <p><i class="bi bi-envelope-open-fill text-primary mr-2"></i>&nbsp;<strong>Email:</strong>
+                            {{ latest_order.email }}</p>
+                        <p><i class="fas fa-phone-alt text-primary mr-2"></i>&nbsp;<strong>Phone:</strong>
+                            {{ latest_order.phone }}</p>
+                        <p><i class="fas fa-map-marker-alt text-primary mr-2"></i>&nbsp;<strong>Address:</strong>
+                            {{ latest_order.address1 }}, {{ latest_order.city }}, {{ latest_order.state }},
+                            {{ latest_order.zipcode }}
+                        </p>
+                        <!-- <p><i class="fas fa-dollar-sign text-primary mr-2"></i><strong>Total:</strong>
+                            ₹{{ latest_order.email }}</p> -->
+                        <!-- <p><i class="fas fa-calendar-day text-primary mr-2"></i><strong>Order Date:</strong>
+                            {{ latest_order.created_at|date }}
+                        </p> -->
+                        <hr>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .bg-gradient-primary {
+        background: linear-gradient(90deg, rgba(58, 123, 213, 1) 0%, rgba(0, 210, 255, 1) 100%);
+    }
+
+    .card-body {
+        background-image: url('https://www.transparenttextures.com/patterns/clean-gray-paper.png');
+    }
+
+    .card {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .fas {
+        color: #007bff;
+    }
+</style>
+{% endblock 'main' %}

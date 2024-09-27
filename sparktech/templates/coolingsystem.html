@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+
+{% load static %}
+
+<!-- Products Section Start -->
+<section class="bg-light px-xl-5">
+    <div class="container-fluid ">
+        <div class="d-flex flex-column bg-primary text-white align-items-center justify-content-center  mb-3"
+            style="min-height: 100px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">Product Overview</h1>
+            <div class="d-inline-flex">
+                <p class="m-0"><a href="/home " class="text-white">Home</a></p>
+                <p class="m-0 px-2">-</p>
+                <p class="m-0">Product Detail</p>
+            </div>
+        </div>
+    
+        <!-- Example Products -->
+        <div id="productList">
+            <div class="row mt-4">
+                <!-- Repeat similar product items for cooling-system -->
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct Cooler_360mm show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/cooler.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Liquid&nbsp;Cooler-360mm</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/Cooler_300mm/" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct Cooler_240mm show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/liquid cool2.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Liquid&nbsp;Cooler-240mm</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/Cooler_240mm" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct Cooler_120mm show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/liquid-cooling1.png' %}" class="img-fluid p-4" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Liquid&nbsp;Cooler-120mm</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/Cooler_120mm" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct Custom_RGB_Cooler show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/air-cooling-2.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Custom-RGB&nbsp;CPU&nbsp;Cooler</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/Custom_RGB_Cooler" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct CPU_RGB_Cooler show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/air-cooling2.png' %}" class="img-fluid p-5" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">CPU-RGB&nbsp;Cooler</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/CPU_RGB_Coole" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat similar product fitems as needed -->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock 'main' %}

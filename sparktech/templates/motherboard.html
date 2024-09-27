@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+
+{% load static %}
+
+<!-- Products Section Start -->
+<section class="bg-light px-xl-5">
+    <div class="container-fluid ">
+        <div class="d-flex flex-column bg-primary text-white align-items-center justify-content-center  mb-3"
+            style="min-height: 100px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">Product Overview</h1>
+            <div class="d-inline-flex">
+                <p class="m-0"><a href="/home " class="text-white">Home</a></p>
+                <p class="m-0 px-2">-</p>
+                <p class="m-0">Product Detail</p>
+            </div>
+        </div>
+       
+        <!-- Example Products -->
+        <div id="productList">
+            <div class="row mt-4">
+                <!-- Repeat similar product items for motherboard  -->
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct DDR_5_Series show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/motherboard-amd-ddr5.png' %}" class="img-fluid p-4"
+                                alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Motherboard-DDR&nbsp;5&nbsp;Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/DDR_5" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct ThreadRipper_Series show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/m-threadrepar.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Motherboard-ThreadRipper&nbsp;Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/ThreadRipper" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct 650_Series show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/m-650.png' %}" class="img-fluid p-3" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Motherboard-650&nbsp;Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/board_650" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct 550_Series show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/m-550.png' %}" class="img-fluid p-2" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Motherboard-550&nbsp;Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/board_550" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct 450_Series show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/m-450.png' %}" class="img-fluid p-4" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">Motherboard-450&nbsp;Series</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/board_450" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat similar product fitems as needed -->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock 'main' %}

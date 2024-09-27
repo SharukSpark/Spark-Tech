@@ -1,0 +1,30 @@
+        /* About Section */
+        #about img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Features Section */
+        #features i {
+            color: #D19C97;
+        }
+
+        .card-img-top {
+            border-radius: 10px;
+        }
+
+        /* Gallery Section */
+        .card-title {
+            font-weight: bold;
+        }
+
+        #map {
+            background: url('map-placeholder.jpg') no-repeat center center;
+            background-size: cover;
+        }
+
+        /* Adjust for fixed navbar */
+        body {
+            padding-top: 80px;
+            /* Adjust based on navbar height */
+        }

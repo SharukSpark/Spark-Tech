@@ -1,0 +1,322 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+
+{% load static %}
+
+<!-- Page Header Start -->
+<div class="container-fluid bg-primary mb-5">
+    <div class="d-flex flex-column bg-primary text-white align-items-center justify-content-center mb-3"
+        style="min-height: 100px">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">Shopping Cart</h1>
+        <div class="d-inline-flex">
+            <p class="m-0"><a href="/home" class="text-white">Home</a></p>
+            <p class="m-0 px-2">-</p>
+            <p class="m-0">Product Detail</p>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Cart Start -->
+<div class="container-fluid ">
+    <div class="row px-xl-5">
+        {% if messages %}
+        <div class="messages d-flex justify-content-center">
+            {% for message in messages %}
+            <h3 class="alert alert-{{ message.tags }}">{{ message }}</h3>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="col-lg-12  table-responsive mb-5 ">
+
+            <table class="table table-bordered text-center mb-0 ">
+                <thead>
+                    <tr>
+                        <th class="bg-primary text-white">Products</th>
+                        <th class="bg-primary text-white">Price</th>
+                        <th class="bg-primary text-white">Quantity</th>
+                        <th class="bg-primary text-white">Total</th>
+                        <th class="bg-primary text-white">Remove</th>
+                    </tr>
+                </thead>
+
+
+                <tbody class="align-middle border-secondary ">
+                    {% for item in Processor %}
+                    <tr style="min-height: 70px; font-size: 16px;">
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <img src="{{ item.item.Processor.card_img.url }}" alt=""
+                                style="width: 100px;height: 100px; margin-right:5px;">
+                            {{ item.item.Processor.card_name }}
+                        </td>
+                        <td class="align-middle bg-light" style="padding: 15px;">{{ item.item.Processor.price }}</td>
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <div class="input-group quantity mx-auto " style="width: 100px;">
+                                <div class="input-group-btn">
+                                    <a href="/update/0/{{ item.item.id }}" class="btn btn-sm btn-primary btn-minus">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                </div>
+                                <input type="text" class="form-control form-control-sm text-center"
+                                    value="{{ item.item.qty }}">
+                                <div class="input-group-btn">
+                                    <a href="/update/1/{{ item.item.id }}" class="btn btn-sm btn-primary btn-plus">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="align-middle bg-light" style="padding: 15px;">{{ item.subtotal1 }}</td>
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <a href="remove/{{ item.item.id }}" class="btn btn-sm btn-primary">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <!-- Add more products here -->
+                    {% for item in Motherboard %}
+                    <tr style="min-height: 70px; font-size: 16px;">
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <img src="{{ item.item.Motherboard.card_img.url }}" alt=""
+                                style="width: 150px;height: 150px; margin-right:5px;">
+                            {{ item.item.Motherboard.card_name }}
+                        </td>
+                        <td class="align-middle bg-light" style="padding: 15px;">{{ item.item.Motherboard.price }}</td>
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <div class="input-group quantity mx-auto" style="width: 100px;">
+                                <div class="input-group-btn ">
+                                    <a href="/update/0/{{ item.item.id }}" class="btn btn-sm btn-primary btn-minus">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                </div>
+                                <input type="text" class="form-control form-control-sm text-center"
+                                    value="{{ item.item.qty }}">
+                                <div class="input-group-btn">
+                                    <a href="/update/1/{{ item.item.id }}" class="btn btn-sm btn-primary btn-plus">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="align-middle bg-light" style="padding: 15px;">{{ item.subtotal2 }}</td>
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <a href="remove/{{ item.item.id }}" class="btn btn-sm btn-primary">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <!-- Add more products here -->
+                    {% for item in Graphiccard %}
+                    <tr style="min-height: 70px; font-size: 16px;">
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <img src="{{ item.item.Graphiccard.card_img.url }}" alt=""
+                                style="width: 180px;height: 180px; margin-right:5px;">
+                            {{ item.item.Graphiccard.card_name }}
+                        </td>
+                        <td class="align-middle bg-light" style="padding: 15px;">{{ item.item.Graphiccard.price }}</td>
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <div class="input-group quantity mx-auto" style="width: 100px;">
+                                <div class="input-group-btn">
+                                    <a href="/update/0/{{ item.item.id }}" class="btn btn-sm btn-primary btn-minus">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                </div>
+                                <input type="text" class="form-control form-control-sm text-center"
+                                    value="{{ item.item.qty }}">
+                                <div class="input-group-btn">
+                                    <a href="/update/1/{{ item.item.id }}" class="btn btn-sm btn-primary btn-plus">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="align-middle bg-light" style="padding: 15px;">{{ item.subtotal3 }}</td>
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <a href="remove/{{ item.item.id }}" class="btn btn-sm btn-primary">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <!-- Add more products here -->
+                    {% for item in Coolingsystem %}
+                    <tr style="min-height: 70px; font-size: 16px;">
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <img src="{{ item.item.Coolingsystem.card_img.url }}" alt=""
+                                style="width: 150px;height: 150px; margin-right:5px;">
+                            {{ item.item.Coolingsystem.card_name }}
+                        </td>
+                        <td class="align-middle bg-light" style="padding: 15px;">{{ item.item.Coolingsystem.price }}
+                        </td>
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <div class="input-group quantity mx-auto" style="width: 100px;">
+                                <div class="input-group-btn">
+                                    <a href="/update/0/{{ item.item.id }}" class="btn btn-sm btn-primary btn-minus">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                </div>
+                                <input type="text" class="form-control form-control-sm text-center"
+                                    value="{{ item.item.qty }}">
+                                <div class="input-group-btn">
+                                    <a href="/update/1/{{ item.item.id }}" class="btn btn-sm btn-primary btn-plus">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="align-middle bg-light" style="padding: 15px;">{{ item.subtotal4 }}</td>
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <a href="remove/{{ item.item.id }}" class="btn btn-sm btn-primary">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <!-- Add more products here -->
+                    {% for item in Ram %}
+                    <tr style="min-height: 70px; font-size: 16px;">
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <img src="{{ item.item.Ram.card_img.url }}" alt=""
+                                style="width: 150px;height: 150px; margin-right:5px;">
+                            {{ item.item.Ram.card_name }}
+                        </td>
+                        <td class="align-middle bg-light" style="padding: 15px;">₹{{ item.item.Ram.price }}</td>
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <div class="input-group quantity mx-auto" style="width: 100px;">
+                                <div class="input-group-btn ">
+                                    <a href="/update/0/{{ item.item.id }}" class="btn btn-sm btn-primary btn-minus">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                </div>
+                                <input type="text" class="form-control form-control-sm text-center"
+                                    value="{{ item.item.qty }}">
+                                <div class="input-group-btn ">
+                                    <a href="/update/1/{{ item.item.id }}" class="btn btn-sm btn-primary btn-plus">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="align-middle bg-light" style="padding: 15px;">{{ item.subtotal5 }}</td>
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <a href="remove/{{ item.item.id }}" class="btn btn-sm btn-primary">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <!-- Add more products here -->
+                    {% for item in Ssd %}
+                    <tr style="min-height: 70px; font-size: 16px;">
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <img src="{{ item.item.Ssd.card_img.url }}" alt=""
+                                style="width: 150px;height: 150px; margin-right:5px;">
+                            {{ item.item.Ssd.card_name }}
+                        </td>
+                        <td class="align-middle bg-light" style="padding: 15px;">₹{{ item.item.Ssd.price }}</td>
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <div class="input-group quantity mx-auto" style="width: 100px;">
+                                <div class="input-group-btn ">
+                                    <a href="/update/0/{{ item.item.id }}" class="btn btn-sm btn-primary btn-minus">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                </div>
+                                <input type="text" class="form-control form-control-sm text-center"
+                                    value="{{ item.item.qty }}">
+                                <div class="input-group-btn ">
+                                    <a href="/update/1/{{ item.item.id }}" class="btn btn-sm btn-primary btn-plus">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="align-middle bg-light" style="padding: 15px;">{{ item.subtotal6 }}</td>
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <a href="remove/{{ item.item.id }}" class="btn btn-sm btn-primary">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <!-- Add more products here -->
+                    {% for item in Smbs %}
+                    <tr style="min-height: 70px; font-size: 16px;">
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <img src="{{ item.item.Smbs.card_img.url }}" alt=""
+                                style="width: 150px;height: 150px; margin-right:5px;">
+                            {{ item.item.Smbs.card_name }}
+                        </td>
+                        <td class="align-middle bg-light" style="padding: 15px;">₹{{ item.item.Smbs.price }}</td>
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <div class="input-group quantity mx-auto" style="width: 100px;">
+                                <div class="input-group-btn">
+                                    <a href="/update/0/{{ item.item.id }}" class="btn btn-sm btn-primary btn-minus">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                </div>
+                                <input type="text" class="form-control form-control-sm text-center"
+                                    value="{{ item.item.qty }}">
+                                <div class="input-group-btn ">
+                                    <a href="/update/1/{{ item.item.id }}" class="btn btn-sm btn-primary btn-plus">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="align-middle bg-light" style="padding: 15px;">{{ item.subtotal7 }}</td>
+                        <td class="align-middle bg-light" style="padding: 15px;">
+                            <a href="remove/{{ item.item.id }}" class="btn btn-sm btn-primary">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-12">
+            <div class="card border-secondary mb-5 bg-light">
+                <div class="card-header bg-primary text-white border-0">
+                    <h4 class="font-weight-semi-bold m-0">Shopping Cart Summary</h4>
+                </div>
+                <div class="card-body ">
+                    <div class="d-flex justify-content-between mb-3 pt-1">
+                        <h6 class="font-weight-medium">Main Total</h6>
+                        <h6 class="font-weight-medium">₹{{ maintotal }}</h6>
+                    </div>
+                    <!-- <div class="d-flex justify-content-between mb-3">
+                        <h6 class="font-weight-medium">Shipping (Lesser Then 10K) </h6>
+                        <h6 class="font-weight-medium">₹1000</h6>
+                    </div> -->
+                    <div class="d-flex justify-content-between ">
+                        <h6 class="font-weight-medium">Count</h6>
+                        <h6 class="font-weight-medium">{{ n }}</h6>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <div class="d-flex justify-content-between ">
+                        <h5 class="font-weight-bold">Total</h5>
+                        <h5 class="font-weight-bold">₹{{ total }}</h5>
+                    </div>
+                    <!-- <a href="/checkout">
+                        <button class="btn btn-block btn-primary  my-3 py-3">Proceed to Buy</button>
+                    </a> -->
+                </div>
+                <div class="d-flex justify-content-center py-3">
+                    <a href="/checkout">
+                        <button class="btn btn-block py-3 font-weight-bold"
+                            style="background-color: #F8D24E; color: #000; border: none; border-radius: 50px; padding: 15px 30px; font-size: 16px;">
+                            Proceed to Buy
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Cart End -->
+
+{% endblock 'main' %}

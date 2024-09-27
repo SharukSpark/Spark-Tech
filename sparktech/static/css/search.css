@@ -1,0 +1,27 @@
+  #suggestions-box {
+      position: absolute;
+      z-index: 1000;
+      width: 44%;
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .suggestion-item {
+      padding: 10px;
+      cursor: pointer;
+      border-bottom: 1px solid #ddd;
+  }
+
+  .suggestion-item:last-child {
+      border-bottom: none;
+  }
+
+  .suggestion-item.active,
+  .suggestion-item:hover {
+      background-color: #007bff;
+      color: #fff;
+      font-weight: bold;
+  }

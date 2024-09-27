@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+<div class="container my-5">
+    <h2 class="text-center mb-4">Order Details</h2>
+    <div class="order-summary p-4 mb-4 rounded bg-light shadow">
+        <div class="row">
+            <div class="col-md-4">
+                <p><strong>Order ID:</strong></p>
+                <p>{{ order.id }}</p>
+            </div>
+            <div class="col-md-4">
+                <p><strong>Date:</strong></p>
+                <p>{{ order.created_at|date:"d M Y" }}</p>
+            </div>
+            <div class="col-md-4">
+                <p><strong>Total:</strong></p>
+                <p>₹{{ order.total }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="order-items">
+        <h4 class="mb-4">Items Purchased:</h4>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped shadow-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" class="text-center">Product</th>
+                        <th scope="col" class="text-center">Quantity</th>
+                        <th scope="col" class="text-center">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in order.items.all %}
+                    <tr>
+                        <td class="text-center">{{ item.product }}</td>
+                        <td class="text-center">{{ item.quantity }}</td>
+                        <td class="text-center">₹{{ item.price }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot class="bg-light">
+                    <tr>
+                        <th colspan="2" class="text-right">Grand Total:</th>
+                        <th class="text-center">₹{{ order.total }}</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock 'main' %}

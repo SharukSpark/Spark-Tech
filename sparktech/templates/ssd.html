@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+
+{% load static %}
+
+<!-- Products Section Start -->
+<section class="bg-light px-xl-5">
+    <div class="container-fluid ">
+        <div class="d-flex flex-column bg-primary text-white align-items-center justify-content-center  mb-3"
+            style="min-height: 100px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">Product Overview</h1>
+            <div class="d-inline-flex">
+                <p class="m-0"><a href="/home " class="text-white">Home</a></p>
+                <p class="m-0 px-2">-</p>
+                <p class="m-0">Product Detail</p>
+            </div>
+        </div>
+
+        <!-- Example Products -->
+        <div id="productList">
+            <div class="row mt-4">
+                <!-- Repeat similar product items for graphic-card  -->
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct 250GB show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/ssd1.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">250GB&nbsp;SSD</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/ssd_256GB" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct 500GB show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/ssd2.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">500GB&nbsp;SSD</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/ssd_500GB" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct NVMe_250GB show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/nvme2.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">NVMe&nbsp;250GB&nbsp;SSD</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/M_2_NVMe_256GB" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct NVMe_500GB show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/nvme3.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">NVMe&nbsp;500GB&nbsp;SSD</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/M_2_NVMe_500GB" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>&nbsp;See
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct NVMe_1TB show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/nvme4.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">NVMe&nbsp;1TB&nbsp;SSD</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/M_2_NVMe_1TB" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>&nbsp;See
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat similar product fitems as needed -->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock 'main' %}

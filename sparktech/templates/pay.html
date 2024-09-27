@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+
+{% load static %}
+
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card border-primary">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Payment Gateway</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <!-- Payment Button -->
+                        <form id="payment-form">
+                            <div class="d-flex justify-content-center pt-3">
+                                <button id="rzp-button1" type="button"
+                                    style="background-color: #F8D24E; color: #000; border: none; border-radius: 50px; padding: 15px 30px; font-size: 16px;">
+                                    Pay with Razorpay
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    var options = {
+        "key": "rzp_test_VZbpcH0s33sGpv", // Enter the Key ID generated from the Dashboard
+        "amount": "{{ amount_in_paisa }}", // Amount in paisa
+        "currency": "INR",
+        "name": "Spark Tech",
+        "description": "Payment for Order {{ order.id }}",
+        "image": "https://example.com/your_logo", // Replace with your logo URL
+        "order_id": "{{ order_id }}", // Razorpay Order ID
+        "handler": function (response) {
+            // On successful payment, redirect to success view
+            window.location.href = "/home/"; // Replace with your success page URL
+        },
+        "notes": {
+            "address": "Your Company Address"
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+
+    var rzp1 = new Razorpay(options);
+    rzp1.on('payment.failed', function (response) {
+        alert("Payment failed: " + response.error.description);
+    });
+
+    document.getElementById('rzp-button1').onclick = function (e) {
+        rzp1.open();
+        e.preventDefault();
+    };
+</script>
+{% endblock 'main' %}

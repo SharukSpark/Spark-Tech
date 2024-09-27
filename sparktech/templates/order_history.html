@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Order History</h2>
+
+    {% if orders %}
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered table-striped shadow-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Invoice</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.created_at|date:"d M Y" }}</td>
+                    <td>₹{{ order.total }}</td>
+                    <td>
+                        <a href="/order-detail/{{ order.id }}/" class="btn btn-primary btn-sm">
+                            View Details
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/invoice/{{ order.id }}/" class="btn btn-primary btn-sm">
+                            View Invoice
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p class="text-center">You have no orders.</p>
+    {% endif %}
+</div>
+
+{% endblock 'main' %}

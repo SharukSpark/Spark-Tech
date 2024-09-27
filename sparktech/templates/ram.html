@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+
+{% load static %}
+
+<!-- Products Section Start -->
+<section class="bg-light px-xl-5">
+    <div class="container-fluid ">
+        <div class="d-flex flex-column bg-primary text-white align-items-center justify-content-center  mb-3"
+            style="min-height: 100px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">Product Overview</h1>
+            <div class="d-inline-flex">
+                <p class="m-0"><a href="/home " class="text-white">Home</a></p>
+                <p class="m-0 px-2">-</p>
+                <p class="m-0">Product Detail</p>
+            </div>
+        </div>
+        <!-- Example Products -->
+        <div id="productList">
+            <div class="row mt-4">
+                <!-- Repeat similar product items for graphic-card  -->
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct 8gb show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/ram1.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">8GB&nbsp;RAM</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/Ram_8GB" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct 16gb show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/ram2.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">16GB&nbsp;RAM</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/Ram_16GB" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct 32gb show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/ram3.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">32GB&nbsp;RAM</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/Ram_32GB" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-eye text-primary mr-1"></i>&nbsp;See
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 pproduct 64gb show">
+                    <div class="card product-item border-2 mb-4">
+                        <div class="card-header  product-img position-relative overflow-hidden bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                            style="height: 400px;">
+                            <img src="{% static 'images/ram4.png' %}" class="img-fluid" alt="Processor">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4">
+                            <h6 class="text-truncate mb-3">64GB&nbsp;RAM</h6>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center bg-light border">
+                            <a href="/Ram_64GB" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>&nbsp;See
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat similar product fitems as needed -->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock 'main' %}
